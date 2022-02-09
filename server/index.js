@@ -17,6 +17,11 @@ const posts = require('./routes/api/posts')
 
 app.use('/api/posts', posts);
 
+if(process.env.NODE_ENV === 'production') {
+    app.unsubscribe(express.static(__dirname, + '/public'));
+    app.unsubscribe(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log('\x1b[34m%s\x1b[0m', `Server started on port ${port}`));
