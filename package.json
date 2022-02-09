@@ -1,0 +1,29 @@
+{
+  "name": "mevn-app",
+  "version": "1.0.0",
+  "description": "A full stack MEVN application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev-linux": "export $(cat ./server/config/dev.env | xargs) && nodemon server/index.js",
+    "dev-windows": "(for /F \"tokens=*\" %i in (./server/config/dev.env) do set %i) && nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragkiadamis/mevn-app.git"
+  },
+  "author": "Adam Fragkiadakis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fragkiadamis/mevn-app/issues"
+  },
+  "homepage": "https://github.com/fragkiadamis/mevn-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
